@@ -19,7 +19,7 @@
                     </a>
                     <ul class="dropdown-menu text-small">
                         <li>
-                            <router-link to="profile" class="dropdown-item">Profile</router-link>
+                            <router-link to="/profile" class="dropdown-item">Profile</router-link>
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="javascript:void(0)" @click="logout()">Sign out</a></li>
@@ -31,16 +31,10 @@
 </template>
 
 <script>
-import {get} from "../utils/localStorage.js";
 import {store} from '../store.js'
 import {mapState, mapActions} from 'pinia'
 export default {
     name: "Navbar",
-    // data() {
-    //     return {
-    //         isLoggedIn: get('token') || false
-    //     }
-    // },
     computed: {
         ...mapState(store, ['isLoggedIn'])
     },

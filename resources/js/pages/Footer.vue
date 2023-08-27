@@ -4,10 +4,10 @@
             <li class="nav-item">
                 <router-link to="/" class="nav-link px-2 text-body-secondary">Home</router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="!isLoggedIn">
                 <router-link to="/login" class="nav-link px-2 text-body-secondary">Login</router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" v-if="!isLoggedIn">
                 <router-link to="/register" class="nav-link px-2 text-body-secondary">Register</router-link>
             </li>
         </ul>
@@ -16,8 +16,14 @@
 </template>
 
 <script>
+import {mapState} from 'pinia';
+import {store} from '../store.js'
+
 export default {
-    name: "Footer"
+    name: "Footer",
+    computed: {
+        ...mapState(store, ['isLoggedIn'])
+    },
 }
 </script>
 

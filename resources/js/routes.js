@@ -6,7 +6,9 @@ import Login from './pages/login/Login.vue'
 import Register from './pages/register/Register.vue'
 import Profile from './pages/profile/Profile.vue'
 import Form from './pages/form/Form.vue'
+import CreateForm from './pages/form/CreateForm.vue'
 import Feedback from './pages/feedback/Feedback.vue'
+import SubmitFeedback from './pages/feedback/SubmitFeedback.vue'
 
 const routes = [
     {path: '/', name: 'home', component: Home},
@@ -14,7 +16,9 @@ const routes = [
     {path: '/register', name: 'register', component: Register, meta: {guest: true}},
     {path: '/profile', name: 'profile', component: Profile, meta: {requiresAuth: true}},
     {path: '/forms', name: 'forms', component: Form, meta: {requiresAuth: true}},
+    {path: '/forms/create', name: 'forms-create', component: CreateForm, meta: {requiresAuth: true}},
     {path: '/feedbacks', name: 'feedbacks', component: Feedback, meta: {requiresAuth: true}},
+    {path: '/feedbacks/submit/:id', name: 'feedbacks-submit', component: SubmitFeedback, meta: {requiresAuth: true}},
 ]
 
 const router = createRouter({

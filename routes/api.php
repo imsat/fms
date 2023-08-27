@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\FeedbackController;
+use App\Http\Controllers\FormController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +18,8 @@ Route::prefix('/v1')->group(function () {
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('logout', [LoginController::class, 'logout']);
+        Route::apiResource('forms', FormController::class);
+        Route::apiResource('feedbacks',FeedbackController::class)->only('store');
     });
 });
 

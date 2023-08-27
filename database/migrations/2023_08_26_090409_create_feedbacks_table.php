@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->nullable()->constrained('users')->nullOnDelete();
             $table->foreignId('form_id')->nullable()->constrained('forms')->nullOnDelete();
-            $table->foreignId('field_id')->nullable()->constrained('users')->nullOnDelete();
+            $table->foreignId('field_id')->nullable()->constrained('fields')->nullOnDelete();
             $table->string('feedback_text');
             $table->string('selected_option')->nullable();
             $table->string('file_path')->nullable();
